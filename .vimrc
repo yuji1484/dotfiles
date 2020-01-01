@@ -21,7 +21,6 @@ set ignorecase " 検索パターンに大文字小文字を区別しない
 set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
 set hlsearch " 検索結果をハイライト
 
-
 syntax on " シンタックスを判別してカラー表示する
 
 set number " 行番号を表示
@@ -29,7 +28,6 @@ set cursorline " カーソルラインをハイライト
 set nowrap " オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される。（有効:wrap/無効:nowrap）
 set ignorecase " 検索の時に大文字と小文字を区別しない
 set smartcase " 検索の時に大文字だけ区別する
-
 set wildmenu
 set clipboard=unnamed
 
@@ -52,6 +50,8 @@ nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 
+" キーバインド
+inoremap <silent> jj <ESC> " jjでインサートモードから抜ける
 
 " plugin manager ---------------------------------------------
 if &compatible

@@ -1,0 +1,6 @@
+osumi 39
+miyake 74
+suzuki 59
+hasegawa 12
+ino 98
+tanaka 41
