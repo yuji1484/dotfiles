@@ -1,36 +1,99 @@
-filetype plugin indent on
+"--------------------------------------------------------------
+"          shell                                            <<<
+"--------------------------------------------------------------
+" set shell=/bin/bash
+" <<<
 
-" 基本設定
-set encoding=utf-8
-scriptencoding utf-8
-set fileencoding=utf-8 " 保存時の文字コード
-set fileencodings=ucs-boms,utf-8,euc-jp,cp932 " 読み込み時の文字コードの自動判別. 左側が優先される
-set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
-set ambiwidth=double " □や○文字が崩れる問題を解決
-set helplang=ja,en " vimのヘルプを日本語化
+"--------------------------------------------------------------
+"          encoding & color                                 <<<
+"--------------------------------------------------------------
+set encoding=utf8
+scriptencoding utf8
+set fileencoding=utf-8
+set termencoding=utf8
+set fileencodings=utf-8,ucs-boms,euc-jp,ep932
+set fileformats=unix,dos,mac
+set ambiwidth=double
+set nobomb
+set t_Co=256
+" <<<
 
-set expandtab " タブ入力を複数の空白入力に置き換える
-set tabstop=2 " 画面上でタブ文字が占める幅
-set softtabstop=2 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set autoindent " 改行時に前の行のインデントを継続する
-set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
-set shiftwidth=2 " smartindentで増減する幅
-set smarttab " 行頭のタブでshiftwidth分のスペースを挿入
+"--------------------------------------------------------------
+"          Vim Options                                      <<<
+"--------------------------------------------------------------
+" スワップファイルの作成先を変更
+set noswapfile
 
-set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
-set ignorecase " 検索パターンに大文字小文字を区別しない
-set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
-set hlsearch " 検索結果をハイライト
+" ヤンクをクリップボードへ繋ぐ
+set clipboard+=unnamed
 
-syntax on " シンタックスを判別してカラー表示する
+" ビープ音を消す
+set belloff=all
 
-set number " 行番号を表示
-set cursorline " カーソルラインをハイライト
-set nowrap " オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される。（有効:wrap/無効:nowrap）
-set ignorecase " 検索の時に大文字と小文字を区別しない
-set smartcase " 検索の時に大文字だけ区別する
+" 行番号系
+set number
+
+" タイトル系
+set title
+
+" 挿入モードでバックスペースで削除できるようにする
+set backspace=indent,eol,start
+
+" 検索するときに大文字小文字を区別しない
+set ignorecase
+
+" 検索した時にハイライト
+set hlsearch
+
+" インクリメンタルサーチ. １文字入力毎に検索を行う
+set incsearch
+
+" 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set smartcase
+
+" ヘルプを日本語化"
+set helplang=ja,en
+
+" オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される。（有効:wrap/無効:nowrap）
+set nowrap
+
+" ファイル名補完
 set wildmenu
-set clipboard=unnamed
+" <<<
+
+"--------------------------------------------------------------
+"          indent                                           <<<
+"--------------------------------------------------------------
+filetype plugin indent on
+set expandtab
+set tabstop=2
+set softtabstop=2
+set autoindent
+set smartindent
+set shiftwidth=2
+au FileType go setlocal sw=4 ts=4 sts=4 noet
+" <<<
+
+"--------------------------------------------------------------
+"          key bind                                         <<<
+"--------------------------------------------------------------
+vnoremap x "_x
+nnoremap x "_x
+nnoremap 1 ^
+nnoremap 2 $
+nnoremap <silent> 9 :bprev<CR>
+nnoremap <silent> 0 :bnext<CR>
+nnoremap \ :%s/old/new/g<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+nnoremap bd :bd<CR>
+
+" 括弧の補完
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" クオーテーションの補完
+inoremap ' ''<LEFT>
+inoremap " ""<LEFT>
 
 " insertモードでemacsのキーバインドを使えるようにする
 imap <C-p> <Up>
@@ -43,6 +106,10 @@ imap <C-d> <Del>
 imap <C-h> <BS>
 imap <C-k> <C-r>=<SID>kill()<CR>
 
+" visulaモードで選択してからのインデント調整で調整後に選択範囲を開放しない
+vnoremap > >gv
+vnoremap < <gv
+
 " 画面分割系
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -51,10 +118,22 @@ nnoremap sh <C-w>h
 nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 
-" キーバインド
-inoremap <silent> jj <ESC> " jjでインサートモードから抜ける
+" jjでインサートモードから抜ける
+inoremap <silent> jj <ESC>
 
-" plugin manager ---------------------------------------------
+" , キーで次タブのバッファを表示
+nnoremap <silent> , :bprev<CR>
+
+" . キーで前タブのバッファを表示
+nnoremap <silent> . :bnext<CR>
+
+" bdで現在のバッファを削除
+nnoremap bd :bd<CR>
+" <<<
+
+"--------------------------------------------------------------
+"          plugin manager                                   <<<
+"-------------------------------------------------------------"
 if &compatible
   set nocompatible
 endif
@@ -92,17 +171,11 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+" <<<"
 
-" ------------------------------------------------------------
-
-" , キーで次タブのバッファを表示
-nnoremap <silent> , :bprev<CR>
-" . キーで前タブのバッファを表示
-nnoremap <silent> . :bnext<CR>
-" bdで現在のバッファを削除
-nnoremap bd :bd<CR>
-
-" カラースキーム
+"--------------------------------------------------------------
+"          colorscheme                                      <<<
+"--------------------------------------------------------------
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -112,3 +185,6 @@ if (empty($TMUX))
   endif
 endif
 
+syntax on
+colorscheme onedark
+" <<<"
