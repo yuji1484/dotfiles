@@ -95,18 +95,18 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap ' ''<LEFT>
 inoremap " ""<LEFT>
 
-" insertモードでemacsのキーバインドを使えるようにする
+" insertモードでのemacsキーバインド
 imap <C-p> <Up>
 imap <C-n> <Down>
-imap <C-b> <Left>
 imap <C-f> <Right>
-imap <C-a> <C-o>:call <SID>home()<CR>
+imap <C-b> <Left>
 imap <C-e> <End>
 imap <C-d> <Del>
 imap <C-h> <BS>
-imap <C-k> <C-r>=<SID>kill()<CR>
+" imap <C-a> <C-o>:call <SID>home()<CR>
+" imap <C-k> <C-r>=<SID>kill()<CR>
 
-" visulaモードで選択してからのインデント調整で調整後に選択範囲を開放しない
+" visualモードで選択してからのインデント調整で調整後に選択範囲を開放しない
 vnoremap > >gv
 vnoremap < <gv
 
