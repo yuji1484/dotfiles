@@ -30,9 +30,8 @@ HISTSIZE=1000000
 HISTFILESIZE=1000000
 
 # SHELL LOGIN WITH TMUX / If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
-
+# [[ $- != *i* ]] && return
+# [[ -z "$TMUX" ]] && exec tmux
 
 # Settings for fzf
 export PATH="$PATH:$HOME/.fzf/bin"
