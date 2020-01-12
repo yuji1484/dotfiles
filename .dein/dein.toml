@@ -1,4 +1,4 @@
-/* 視認性の高いディレクトリツリーを表示 */
+# ディレクトリツリーを表示
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -6,6 +6,7 @@ hook_add = '''
     nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 30<CR>
 '''
 
+# グラフィカルなステータスバーを利用
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 [[plugins]]
@@ -18,6 +19,7 @@ hook_add = '''
     let g:airline#extensions#tabline#fnamemod = ':t'
 '''
 
+# インデントを可視化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
@@ -28,12 +30,14 @@ hook_add = '''
      autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=240
 '''
 
+# コメントアウト操作を手軽に行える
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 hook_add = '''
     vnoremap ? :'<,'>TComment<CR>
 '''
 
+# Linter（静的解析） 
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
@@ -67,12 +71,14 @@ hook_add = '''
   let g:ale_javascript_prettier_use_local_config=1
 '''
 
+# カラフルな()を表示
 [[plugins]]
 repo = 'luochen1990/rainbow'
 hook_add = '''
     let g:rainbow_active = 1
 '''
 
+# ウィンドウサイズの変更を簡単・高速にする
 [[plugins]]
 repo = 'simeji/winresizer'
 
@@ -98,6 +104,7 @@ hook_add = '''
         nnoremap <C-h> :History<CR>
 '''
 
+# CoC
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
