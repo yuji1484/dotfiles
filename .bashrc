@@ -17,11 +17,18 @@ eval "$(rbenv init -)"
 PATH="$PATH:~/dotfiles/.my_shell_script"
 
 # エイリアス 
+function cdls() {
+    cd $1;
+    ls -G;
+}
+alias cd=cdls
 alias cdd='cd ~/Desktop'
+alias cddot='cd ~/dotfiles'
 alias ..='cd ..'
+alias ...='cd ../..'
 alias ls='ls -F'
 alias la='ls -a'
-alias ll='ls -la'
+alias ll='ls -lGa'
 alias t='tmux'
 
 # コマンド履歴設定
