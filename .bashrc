@@ -1,7 +1,7 @@
 # Set language
 export LANG=ja_JP.UTF-8
-
-# 
+ 
+# Setting PATH for rbenv
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # Setting PATH for Python 3.7
@@ -18,8 +18,8 @@ PATH="$PATH:~/dotfiles/.my_shell_script"
 
 # エイリアス 
 function cdls() {
-    cd $1;
-    ls -G;
+  cd $1;
+  ls -G;
 }
 alias cd=cdls
 alias cdd='cd ~/Desktop'
@@ -29,6 +29,7 @@ alias ...='cd ../..'
 alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -lGa'
+alias vi='vim'
 alias t='tmux'
 
 # コマンド履歴設定
