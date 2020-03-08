@@ -78,8 +78,8 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " クオーテーションの補完
-inoremap ' ''<LEFT>
-inoremap " ""<LEFT>
+" inoremap ' ''<LEFT>
+" inoremap " ""<LEFT>
 " insertモードでのemacsキーバインド
 imap <C-p> <Up>
 imap <C-n> <Down>
