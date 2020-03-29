@@ -2,7 +2,6 @@
 "          shell                                            <<<
 "--------------------------------------------------------------
 " set shell=/bin/bash
-" <<<
 
 "--------------------------------------------------------------
 "          encoding & color                                 <<<
@@ -16,7 +15,6 @@ set fileformats=unix,dos,mac
 set ambiwidth=double
 set nobomb
 set t_Co=256
-" <<<
 
 "--------------------------------------------------------------
 "          Vim Options                                      <<<
@@ -47,7 +45,6 @@ set helplang=ja,en
 set nowrap
 " ファイル名補完
 set wildmenu
-" <<<
 
 "--------------------------------------------------------------
 "          indent                                           <<<
@@ -60,51 +57,61 @@ set autoindent
 set smartindent
 set shiftwidth=2
 au FileType go setlocal sw=4 ts=4 sts=4 noet
-" <<<
 
 "--------------------------------------------------------------
 "          key bind                                         <<<
 "--------------------------------------------------------------
 vnoremap x "_x
 nnoremap x "_x
-nnoremap 1 ^
-nnoremap 2 $
-nnoremap <silent> 9 :bprev<CR>
-nnoremap <silent> 0 :bnext<CR>
-nnoremap \ :%s///g<LEFT><LEFT><LEFT>
+" nnoremap 1 ^
+" nnoremap 2 $
+
+" buffer  
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 nnoremap bd :bd<CR>
-" 括弧の補完
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-" クオーテーションの補完
-" inoremap ' ''<LEFT>
-" inoremap " ""<LEFT>
-" insertモードでのemacsキーバインド
-imap <C-p> <Up>
-imap <C-n> <Down>
-imap <C-f> <Right>
-imap <C-b> <Left>
-imap <C-e> <End>
-imap <C-d> <Del>
-imap <C-h> <BS>
-" imap <C-a> <C-o>:call <SID>home()<CR>
-" imap <C-k> <C-r>=<SID>kill()<CR>
-" visualモードで選択してからのインデント調整で調整後に選択範囲を開放しない
-vnoremap > >gv
-vnoremap < <gv
-" 画面分割系
+" nnoremap <silent> 9 :bprev<CR>
+" noremap <silent> 0 :bnext<CR>
+
+" window
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
-nnoremap ss :<C-u>sp<CR><C-w>j
-nnoremap sv :<C-u>vs<CR><C-w>l
-" jjでインサートモードから抜ける
-inoremap <silent> jj <ESC>
-" bdで現在のバッファを削除
-nnoremap bd :bd<CR>
-" <<<
+
+" replace
+nnoremap \ :%s///g<LEFT><LEFT><LEFT>
+
+" auto complete
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" inoremap ' ''<LEFT>
+" inoremap " ""<LEFT>
+
+" insert
+inoremap <silent> jj <esc>
+imap <c-p> <up>
+imap <c-n> <down>
+imap <c-f> <right>
+imap <c-b> <left>
+imap <c-e> <end>
+imap <c-d> <del>
+imap <c-h> <bs>
+" imap <c-a> <c-o>:call <sid>home()<cr>
+" imap <c-k> <c-r>=<sid>kill()<cr>
+
+" visual
+vnoremap > >gv
+vnoremap < <gv
+
+" command line
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 "--------------------------------------------------------------
 "          plugin manager                                   <<<
