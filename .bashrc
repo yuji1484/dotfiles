@@ -5,6 +5,9 @@ export LANG=ja_JP.UTF-8
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
 
+# Setting PATH for macport
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
 # Setting PATH for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -15,17 +18,22 @@ eval "$(pyenv init -)"
 
 # Setting PATH for Python 3.7
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
-export PATH
+export PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
 
 # Setting PATH for rbenv
 export PATH="~/.rbenv/shims:/usr/local/bin:$PATH"
 eval "$(rbenv init -)"
 
-# Setting PATH for my_shell_script
-PATH="$PATH:~/dotfiles/.my_shell_script"
+# Setting PATH for my shell script
+export PATH="$PATH:~/.script"
 
-# エイリアス 
+# Setting PATH for aws_cli
+export PATH="/usr/local/aws/bin:$PATH"
+
+# I absolutely use bash.
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# alias
 function cdls() {
   cd $1;
   ls -G;
@@ -40,11 +48,24 @@ alias la='ls -a'
 alias ll='ls -lGa'
 alias vi='vim'
 alias t='tmux'
+alias ide="~/.scripts/ide.sh"
 
-# コマンド履歴設定
+# command history
 shopt -s histappend
 HISTSIZE=1000000
 HISTFILESIZE=1000000
+
+# pronpt
+# 出力の後に改行を入れる
+function add_line {
+  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
+    PS1_NEWLINE_LOGIN=true
+  else
+    printf '\n'
+  fi
+}
+PROMPT_COMMAND='add_line'
+export PS1='\u:\w \n\$ '
 
 # SHELL LOGIN WITH TMUX / If not running interactively, do not do anything
 # [[ $- != *i* ]] && return
