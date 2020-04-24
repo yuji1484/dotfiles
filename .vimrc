@@ -19,32 +19,21 @@ set t_Co=256
 "--------------------------------------------------------------
 "          Vim Options                                      <<<
 "--------------------------------------------------------------
-" スワップファイルの作成先を変更
-set noswapfile
-" ヤンクをクリップボードへ繋ぐ
-set clipboard+=unnamed
-" ビープ音を消す
-set belloff=all
-" 行番号系
-set number
-" タイトル系
-set title
-" 挿入モードでバックスペースで削除できるようにする
-set backspace=indent,eol,start
-" 検索するときに大文字小文字を区別しない
-set ignorecase
-" 検索した時にハイライト
-set hlsearch
-" インクリメンタルサーチ. １文字入力毎に検索を行う
-set incsearch
-" 検索パターンに大文字を含んでいたら大文字小文字を区別する
-set smartcase
-" ヘルプを日本語化"
-set helplang=ja,en
-" オンのときは、ウィンドウの幅より長い行は折り返され、次の行に続けて表示される。（有効:wrap/無効:nowrap）
-set nowrap
-" ファイル名補完
-set wildmenu
+set noswapfile " スワップファイルの作成先を変更
+set clipboard+=unnamed " ヤンクをクリップボードへ繋ぐ
+set belloff=all " ビープ音を消す
+set number " 行番号
+set title " タイトル
+set backspace=indent,eol,start " 挿入モードでバックスペースで削除できるようにする
+set hlsearch " 検索した時にハイライト
+set incsearch " インクリメンタルサーチ. １文字入力毎に検索を行う
+set ignorecase " 検索するときに大文字小文字を区別しない
+set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set helplang=ja,en " ヘルプを日本語化"
+set wrap " ウィンドウの幅より長い行は折り返され、次の行に続けて表示される。
+set wildmenu " ファイル名補完
+" set paste と set nopaste をF5 でトグルする
+" set pastetoggle=<f5>
 
 "--------------------------------------------------------------
 "          indent                                           <<<
@@ -85,6 +74,9 @@ nnoremap sh <C-w>h
 
 " replace
 nnoremap \ :%s///g<LEFT><LEFT><LEFT>
+
+" nohlsearch + <C-l>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " auto complete
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
