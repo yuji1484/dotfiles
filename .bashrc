@@ -27,6 +27,9 @@ eval "$(rbenv init -)"
 # Setting PATH for my shell script
 export PATH="$PATH:~/.script"
 
+# setting PATH for tmux command
+export PATH="$PATH:~/.tmux.bin"
+
 # Setting PATH for aws_cli
 export PATH="/usr/local/aws/bin:$PATH"
 
@@ -48,7 +51,7 @@ alias la='ls -a'
 alias ll='ls -lGa'
 alias vi='vim'
 alias t='tmux'
-alias ide="~/.scripts/ide.sh"
+alias ide="~/.tmux.bin/ide.sh"
 
 # command history
 shopt -s histappend
