@@ -1,7 +1,7 @@
 "--------------------------------------------------------------
 "          shell                                            <<<
 "--------------------------------------------------------------
-" set shell=/bin/bash
+set shell=/bin/bash
 
 "--------------------------------------------------------------
 "          encoding & color                                 <<<
@@ -146,19 +146,7 @@ if dein#check_install()
   call dein#install()
 endif
 " <<<"
-
-"--------------------------------------------------------------
-"          colorscheme                                      <<<
-"--------------------------------------------------------------
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
+set background=dark
+colorscheme solarized
 syntax on
-colorscheme onedark
 " <<<"
