@@ -104,6 +104,10 @@ hook_add = '''
         nnoremap <C-h> :History<CR>
 '''
 
+# ale
+[[plugins]]
+repo = "w0rp/ale"
+
 # CoC
 [[plugins]]
 repo = 'neoclide/coc.nvim'
