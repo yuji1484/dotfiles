@@ -30,8 +30,10 @@ export PATH="$PATH:~/.script"
 # setting PATH for tmux command
 export PATH="$PATH:~/.tmux"
 
-# Setting PATH for aws_cli
+# Setting aws_cli
 export PATH="/usr/local/aws/bin:$PATH"
+complete -C '/usr/local/aws/bin/aws_completer' aws
+export AWS_DEFAULT_PROFILE=cm-ishibashi.yuji
 
 # I absolutely use bash.
 export BASH_SILENCE_DEPRECATION_WARNING=1
