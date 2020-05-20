@@ -46,6 +46,7 @@ function cdls() {
 alias cd=cdls
 alias cdd='cd ~/Desktop'
 alias cddot='cd ~/dotfiles'
+alias cdcheet='cd ~/Desktop/cheat_sheet'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='ls -F'
