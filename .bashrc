@@ -35,7 +35,7 @@ export PATH="$PATH:~/.tmux"
 
 # setting aws_cli
 export PATH="/usr/local/aws/bin:$PATH"
-complete -C '/usr/local/aws/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' aws
 export AWS_DEFAULT_PROFILE=cm-ishibashi.yuji
 
 # I absolutely use bash.
@@ -49,7 +49,7 @@ function cdls() {
 alias cd=cdls
 alias cdd='cd ~/Desktop'
 alias cddot='cd ~/dotfiles'
-alias cdcheet='cd ~/Desktop/cheat_sheet'
+alias cdcheet='cd ~/Desktop/study/cheat_sheet'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ls='ls -F'
