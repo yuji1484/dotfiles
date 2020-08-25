@@ -3,7 +3,7 @@
 
 [core]
   editor = vim
-  excludesfile = /Users/ishibashi.yuji/.gitignore_global
+  excludesfile = .gitignore_global
 
 [alias]
   st = status
@@ -16,3 +16,6 @@
   dfs = diff --staged
   br = branch
   ref = reflog
+
+[commit]
+	template = .commit_template
