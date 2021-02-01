@@ -1,6 +1,6 @@
 # Set language
 export LANG=ja_JP.UTF-8
- 
+
 # setting PATH for macpornj
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/man:$MANPATH
@@ -11,10 +11,16 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # setting PATH for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# settint PATH for pyenv
+# setting nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# settint pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
 # setting Python 3.7
 # The original version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
@@ -33,6 +39,8 @@ export PATH="$PATH:~/.script"
 # setting PATH for tmux command
 export PATH="$PATH:~/.tmux"
 
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
 # setting aws_cli
 export PATH="/usr/local/aws/bin:$PATH"
 complete -C '/usr/local/bin/aws_completer' aws
@@ -40,6 +48,17 @@ export AWS_DEFAULT_PROFILE=cm-ishibashi.yuji
 
 # I absolutely use bash.
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# setting git 
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
+
+if [ $UID -eq 0 ]; then
+    PS1='\u:\w$(__git_ps1)\n$ '
+else
+    PS1='\u:\w$(__git_ps1)\n$ '
+fi
 
 # alias
 function cdls() {
@@ -58,6 +77,7 @@ alias ll='ls -lGa'
 alias vi='vim'
 alias t='tmux'
 alias ide="~/.tmux/ide.sh"
+alias assume='source ~/dotfiles/_assume.sh'
 
 # command history
 shopt -s histappend
@@ -74,7 +94,6 @@ function add_line {
   fi
 }
 PROMPT_COMMAND='add_line'
-export PS1='\u:\w \n\$ '
 
 # SHELL LOGIN WITH TMUX / If not running interactively, do not do anything
 # [[ $- != *i* ]] && return
@@ -85,3 +104,4 @@ export PATH="$PATH:$HOME/.fzf/bin"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 30% --border'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
