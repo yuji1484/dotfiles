@@ -33,6 +33,9 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
+# setting PATH for grep
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
 # setting PATH for my shell script
 export PATH="$PATH:~/.script"
 
@@ -75,9 +78,15 @@ alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -lGa'
 alias vi='vim'
+## tmux
 alias t='tmux'
 alias ide="~/.tmux/ide.sh"
+## git
+alias gs='git status'
+alias gb='git branch'
+## aws
 alias assume='source ~/dotfiles/_assume.sh'
+
 
 # command history
 shopt -s histappend

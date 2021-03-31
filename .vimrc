@@ -146,7 +146,6 @@ if dein#check_install()
   call dein#install()
 endif
 " <<<"
-set background=dark
-colorscheme solarized
+colorscheme iceberg
 syntax on
 " <<<"

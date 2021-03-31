@@ -6,19 +6,6 @@ hook_add = '''
     nnoremap <silent><C-a> :NERDTreeFind<CR>:vertical res 30<CR>
 '''
 
-# グラフィカルなステータスバーを利用
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-depends = 'vim-airline'
-hook_add = '''
-    let g:airline_theme = 'solarized'
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#buffer_idx_mode = 1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-'''
-
 # インデントを可視化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -27,7 +14,7 @@ hook_add = '''
     let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
     let g:indent_guides_auto_colors = 0
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=237
-     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=240
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=240
 '''
 
 # コメントアウト操作を手軽に行える
@@ -54,6 +41,7 @@ hook_add = '''
     \ 'haml': ['haml-lint'],
     \ 'javascript': ['eslint'],
     \ 'json': ['jq'],
+    \ 'python': ['autopep8'],
     \ 'ruby': ['rubocop', 'solargraph'],
     \ 'typescript': ['eslint'],
     \ 'vim': ['vint'],
@@ -103,10 +91,6 @@ hook_add = '''
         nnoremap <C-p> :GFiles<CR>
         nnoremap <C-h> :History<CR>
 '''
-
-# ale
-[[plugins]]
-repo = "w0rp/ale"
 
 # CoC
 [[plugins]]
