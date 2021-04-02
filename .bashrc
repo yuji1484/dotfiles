@@ -16,18 +16,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# settint pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # setting Python 3.7
 # The original version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
 
-# setting rbenv
-export PATH="~/.rbenv/shims:/usr/local/bin:$PATH"
-eval "$(rbenv init -)"
 
 # setting nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
@@ -113,4 +105,3 @@ export PATH="$PATH:$HOME/.fzf/bin"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 30% --border'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-

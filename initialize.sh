@@ -25,9 +25,5 @@ brew update
 brew install git
 brew install fzf
 brew install tmux
-brew install tig
 brew install lazygit
 brew install awscli
-brew install rbenv
-brew install pyenv
-brew install nodenv
