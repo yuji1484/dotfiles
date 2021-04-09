@@ -20,11 +20,6 @@ export NVM_DIR="$HOME/.nvm"
 # The original version is saved in .bash_profile.pysave
 export PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
 
-
-# setting nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-
 # setting PATH for grep
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
