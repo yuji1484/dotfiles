@@ -34,7 +34,6 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 # setting aws_cli
 export PATH="/usr/local/aws/bin:$PATH"
 complete -C '/usr/local/bin/aws_completer' aws
-export AWS_DEFAULT_PROFILE=cm-ishibashi.yuji
 
 # I absolutely use bash.
 export BASH_SILENCE_DEPRECATION_WARNING=1
