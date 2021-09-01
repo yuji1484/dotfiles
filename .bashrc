@@ -16,10 +16,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# setting Python 3.7
-# The original version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
-
 # setting PATH for grep
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
@@ -72,6 +68,8 @@ alias gs='git status'
 alias gb='git branch'
 ## aws
 alias assume='source ~/dotfiles/_assume.sh'
+## docker 
+alias dcu='docker compose up'
 
 
 # command history
