@@ -19,3 +19,6 @@
 
 [commit]
 	template = ~/.commit_template
+[user]
+	email = yu.job96@gmail.com
+	name = yuji1484
