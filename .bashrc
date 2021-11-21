@@ -66,11 +66,13 @@ alias ide="~/.tmux/ide.sh"
 ## git
 alias gs='git status'
 alias gb='git branch'
+alias gc='git checkout'
 ## aws
 alias assume='source ~/dotfiles/_assume.sh'
 ## docker 
 alias dcu='docker compose up'
-
+## trraform
+alias tf='terraform'
 
 # command history
 shopt -s histappend
