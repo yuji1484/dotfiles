@@ -53,6 +53,7 @@ function cdls() {
 alias cd=cdls
 alias cdd='cd ~/Desktop'
 alias cddot='cd ~/dotfiles'
+alias vidot='vi ~/dotfiles'
 alias cdcheet='cd ~/Desktop/study/cheat_sheet'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -71,6 +72,7 @@ alias gc='git checkout'
 alias assume='source ~/dotfiles/_assume.sh'
 ## docker 
 alias dcu='docker compose up'
+alias dcua='docker compose up app'
 ## trraform
 alias tf='terraform'
 
