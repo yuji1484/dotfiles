@@ -16,9 +16,14 @@
   dfs = diff --staged
   br = branch
   ref = reflog
+  vaccum = !git branch --merged | egrep -v '\\*|dev|main|stage' | xargs git branch -d
 
 [commit]
 	template = ~/.commit_template
 [user]
 	email = yu.job96@gmail.com
 	name = yuji1484
+[push]
+	default = current
+[init]
+	defaultBranch = main
