@@ -1,0 +1,32 @@
+# フォントの設定
+# font-family = "JetBrains Mono"
+font-family = BlexMono Nerd Font Mono
+font-size = 14
+
+# 背景の透過（0.0 〜 1.0）
+background-opacity = 0.8
+
+# カラーテーマ
+# theme = "TokyoNight"
+theme = "TokyoNight Night"
+# theme = "TokyoNight Storm"
+# theme = "TokyoNight Moon"
+# theme = "TokyoNight Day"
+
+# キーバインド
+# 分割
+# keybind = ctrl+s>v=new_split:right
+# keybind = ctrl+s>s=new_split:down
+
+# ペイン移動 (hjkl)
+# keybind = ctrl+s>h=goto_split:left
+# keybind = ctrl+s>j=goto_split:bottom
+# keybind = ctrl+s>k=goto_split:top
+# keybind = ctrl+s>l=goto_split:right
+
+# Quick Terminal（グローバルショートカット）
+keybind = global:ctrl+space=toggle_quick_terminal
+quick-terminal-position = center
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0
+quick-terminal-size = 100%,100%
