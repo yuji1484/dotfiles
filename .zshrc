@@ -1,45 +1,23 @@
-# Set language
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Theme
+ZSH_THEME="af-magic"
+
+# Settings
+DISABLE_AUTO_TITLE="true"
+
+# Plugins
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Language
 export LANG=ja_JP.UTF-8
- 
-# Setting PATH for macpornj
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/man:$MANPATH
-
-# Setting PATH for macport
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-
-# Setting PATH for nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# settint PATH for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Setting PATH for Python 3.7
-# The original version is saved in .bash_profile.pysave
-export PATH="/Library/Frameworks/Python.framework/Versions/3.7.4/bin:${PATH}"
-
-# Setting PATH for rbenv
-export PATH="~/.rbenv/shims:/usr/local/bin:$PATH"
-eval "$(rbenv init -)"
-
-# Setting PATH for my shell script
-export PATH="$PATH:~/.script"
-
-# setting PATH for tmux command
-export PATH="$PATH:~/.tmux"
-
-# Setting aws_cli
-export PATH="/usr/local/aws/bin:$PATH"
-complete -C '/usr/local/aws/bin/aws_completer' aws
-
-export AWS_DEFAULT_PROFILE=cm-ishibashi.yuji
 
 # alias
 function cdls() {
-  cd $1;
-  ls -G;
+  builtin cd "$1" && ls -G;
 }
 alias cd=cdls
 alias cdd='cd ~/Desktop'
@@ -53,40 +31,40 @@ alias vi='vim'
 alias t='tmux'
 alias ide="~/.tmux/ide.sh"
 
-# pronpt
-# 出力の後に改行を入れる
-function add_line {
-  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
-    PS1_NEWLINE_LOGIN=true
-  else
-    printf '\n'
-  fi
-}
-PROMPT_COMMAND='add_line'
-export PS1='\u:\w \n\$ '
+## git
+alias gs='git status'
+alias gb='git branch'
+alias gc='git checkout'
 
-# SHELL LOGIN WITH TMUX / If not running interactively, do not do anything
-# [[ $- != *i* ]] && return
-# [[ -z "$TMUX" ]] && exec tmux
+## docker
+alias dcu='docker compose up'
+alias dcua='docker compose up app'
 
-# Settings for fzf
-export PATH="$PATH:$HOME/.fzf/bin"
+## terraform
+alias tf='terraform'
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 30% --border'
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/ishibashi.yuji/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/ishibashi.yuji/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/ishibashi.yuji/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/ishibashi.yuji/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# Local bin
+export PATH="$HOME/.local/bin:$PATH"
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
+# Cursor
+export PATH="/Applications/Cursor.app/Contents/Resources/app/bin:$PATH"
+
+# Antigravity
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+# Kiro integration
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Local settings (not tracked in git)
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
